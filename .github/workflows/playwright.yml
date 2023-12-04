@@ -19,7 +19,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Cucumber tests
       run: npm test
-    - uses: gulpjs/gulpjs@v3
+    - uses: https://github.com/gulpjs/gulpjs/actions/v3
       with:
          script: zip-reports
 
