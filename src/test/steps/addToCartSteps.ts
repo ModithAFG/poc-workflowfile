@@ -19,6 +19,6 @@ When('user add the book to the cart', async function () {
     await toast.waitFor({ state: "hidden" })
 });
 Then('the cart badge should get updated', async function () {
-    const badgeCount = await fixture.page.locator("#mat-badge-content-100").textContent();
+    const badgeCount = await fixture.page.locator("#mat-badge-content-0").textContent();
     expect(Number(badgeCount)).toBeGreaterThan(0);
 });

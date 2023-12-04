@@ -17,7 +17,11 @@ BeforeAll(async function () {
 // It will trigger for not auth scenarios
 Before({ tags: "not @auth" }, async function ({ pickle }) {
     const scenarioName = pickle.name + pickle.id
-    
+    context = await browser.newContext({
+        recordVideo: {
+            dir: "test-results/videos",
+        },
+    });
     await context.tracing.start({
         name: scenarioName,
         title: pickle.name,
@@ -33,7 +37,12 @@ Before({ tags: "not @auth" }, async function ({ pickle }) {
 // It will trigger for auth scenarios
 Before({ tags: '@auth' }, async function ({ pickle }) {
     const scenarioName = pickle.name + pickle.id
-   
+    context = await browser.newContext({
+        storageState: getStorageState(pickle.name),
+        recordVideo: {
+            dir: "test-results/videos",
+        },
+    });
     await context.tracing.start({
         name: scenarioName,
         title: pickle.name,
@@ -61,7 +70,10 @@ After(async function ({ pickle, result }) {
         await this.attach(
             img, "image/png"
         );
-        
+        await this.attach(
+            fs.readFileSync(videoPath),
+            'video/webm'
+        );
         const traceFileLink = `<a href="https://trace.playwright.dev/">Open ${path}</a>`
         await this.attach(`Trace file: ${traceFileLink}`, 'text/html');
 

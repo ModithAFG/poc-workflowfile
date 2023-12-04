@@ -19,9 +19,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Cucumber tests
       run: npm test
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
+      if: always()
       with:
         name: Report
-        path: ${{github.workspace}}/test-results/
-        retention-days: 30
-  
+        path: test-results
+        retention-days: 2
