@@ -3,4 +3,6 @@ node_modules/
 /playwright/.cache/
 @rerun.txt
 /test-results/
-
+/test-results/reports
+/test-results/reports/assets
+/test-results/reports/features
