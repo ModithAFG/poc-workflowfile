@@ -19,15 +19,14 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Cucumber tests
       run: npm test
-    - uses: https://github.com/gulpjs/gulpjs/actions/v3
-      with:
-         script: zip-reports
-
-
     - uses: actions/upload-artifact@v3
       with:
         name: Report
         path: |
-            test-results.zip
+            test-results/cucumber-report.html
+            test-results/cucumber-report.json
+            test-results/reports
+            test-results/reports/index.html
+            test-results/reports/assets/**/*
 
         retention-days: 2
