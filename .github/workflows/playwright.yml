@@ -23,5 +23,6 @@ jobs:
       with:
         name: Report
         path: test-results/**/*
+        ignore: false
         retention-days: 30
   
