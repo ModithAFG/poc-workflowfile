@@ -4,7 +4,7 @@ import { fixture } from "./pageFixture";
 import { invokeBrowser } from "../helper/browsers/browserManager";
 import { getEnv } from "../helper/env/env";
 import { createLogger } from "winston";
-import { options } from "../helper/util/logger";
+// import { options } from "../helper/util/logger";
 const fs = require("fs-extra");
 
 let browser: Browser;
@@ -30,7 +30,7 @@ Before({ tags: "not @auth" }, async function ({ pickle }) {
     });
     const page = await context.newPage();
     fixture.page = page;
-    fixture.logger = createLogger(options(scenarioName));
+   // fixture.logger = createLogger(options(scenarioName));
 });
 
 
@@ -51,7 +51,7 @@ Before({ tags: '@auth' }, async function ({ pickle }) {
     });
     const page = await context.newPage();
     fixture.page = page;
-    fixture.logger = createLogger(options(scenarioName));
+    //fixture.logger = createLogger(options(scenarioName));
 });
 
 After(async function ({ pickle, result }) {

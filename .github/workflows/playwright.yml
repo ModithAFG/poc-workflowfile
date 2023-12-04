@@ -18,10 +18,10 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Cucumber tests
-      run: npm test
+      run: npm test:bdd
     - uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: Report
-        path: test-results
+        name: ReportsFolder
+        path: testResults
         retention-days: 2
