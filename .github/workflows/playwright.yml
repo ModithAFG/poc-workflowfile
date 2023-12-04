@@ -22,7 +22,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: Report
-        path: test-results/**/*
-        ignore: false
+        path: test-results/**/assets/*
         retention-days: 30
   
