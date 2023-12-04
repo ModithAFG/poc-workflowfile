@@ -1,0 +1,111 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "add-products-to-cart;unauthenticated-user---add-to-cart",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "UnAuthenticated User - Add to cart",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 810807300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2879485000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "User click on the login link",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:56"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 241010399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "user search for a \"All of Us with Wings\"",
+            "match": {
+              "location": "src\\test\\steps\\addToCartSteps.ts:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2337203499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "user add the book to the cart",
+            "match": {
+              "location": "src\\test\\steps\\addToCartSteps.ts:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2885040400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "the cart badge should get updated",
+            "match": {
+              "location": "src\\test\\steps\\addToCartSteps.ts:83"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 30026868200,
+              "error_message": "locator.textContent: Timeout 30000ms exceeded.\n=========================== logs ===========================\nwaiting for locator('#mat-badge-content-100')\n============================================================\n    at World.<anonymous> (C:\\githubpoc\\poc-workflowfile\\src\\test\\steps\\addToCartSteps.ts:88:107)\n    at step (C:\\githubpoc\\poc-workflowfile\\src\\test\\steps\\addToCartSteps.ts:33:23)\n    at Object.next (C:\\githubpoc\\poc-workflowfile\\src\\test\\steps\\addToCartSteps.ts:14:53)\n    at C:\\githubpoc\\poc-workflowfile\\src\\test\\steps\\addToCartSteps.ts:8:71\n    at __awaiter (C:\\githubpoc\\poc-workflowfile\\src\\test\\steps\\addToCartSteps.ts:4:12)\n    at World.<anonymous> (C:\\githubpoc\\poc-workflowfile\\src\\test\\steps\\addToCartSteps.ts:84:12)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2801611900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@fail",
+            "line": 21
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "add-products-to-cart",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Add products to cart",
+    "tags": [],
+    "uri": "src\\test\\features\\addToCart.feature"
+  }
+]
