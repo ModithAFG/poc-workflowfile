@@ -20,8 +20,9 @@ jobs:
     - name: Run Cucumber tests
       run: npm test
     - uses: actions/upload-artifact@v3
-      if: always()
       with:
         name: Report
-        path: test-results
+        path: |
+            test-results
+            test-results/reports
         retention-days: 2
