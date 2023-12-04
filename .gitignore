@@ -2,9 +2,14 @@ node_modules/
 /test-results/
 /playwright-report/
 /playwright/.cache/
-/test-result/
+/test-results/cucumber-report.json/
 /test-results/
 cucumber-report.html
+/test-results/cucumber-report.html/
+/test-results/reports/
+/test-results/reports/assets/
+/test-results/reports/features/
+/test-results/reports/index.html/
 assets
 features
 @rerun.txt
