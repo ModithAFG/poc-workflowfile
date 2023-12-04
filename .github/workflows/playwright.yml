@@ -23,6 +23,6 @@ jobs:
       with:
         name: Report
         path: |
-            test-results/reports/assets/**/*
+            test-results
 
         retention-days: 2
