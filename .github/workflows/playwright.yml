@@ -22,6 +22,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: Report
-        path: test-results
+        path: test-results/reports/*
         retention-days: 30
   
