@@ -24,7 +24,7 @@ jobs:
         name: Report
         path: |
            
-            testDemo
+            test-results
           
 
         retention-days: 2
