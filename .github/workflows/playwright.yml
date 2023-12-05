@@ -26,19 +26,22 @@ jobs:
            
             test-results
         retention-days: 2
-    - uses: dawidd6/action-send-mail@v3
-      with:
-       server_address: smtp.gmail.com
-       server_port: 465
-       username: ${{secrets.USERNAMEEMAIL}}
-       password: ${{secrets.PASSWORDEMAIL}}
-       subject: Github Actions job result
-       to: modith.george@afgonline.com.au
-       from: Modith George
-       body: Build job of ${{github.repository}} completed successfully!
-        # Optional unsigned/invalid certificates allowance:
-         #ignore_cert: true
-        # Optional converting Markdown to HTML (set content_type to text/html too):
-         #attachments: attachments.zip,git.diff,./dist/static/*.js
-       # Optional priority: 'high', 'normal' (default) or 'low'
-        #priority: low    
+notify:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.USERNAMEEMAIL }}
+          password: ${{ secrets.PASSWORDEMAIL }}
+          subject: ${{ github.sha }} Build completed - ${{ job.status }}
+          to: 'your_email@example.com'
+          body: |
+            The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.
+            Build status: ${{ job.status }}.
+            See more details: ${{ github.run_url }}
