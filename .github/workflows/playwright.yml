@@ -37,7 +37,6 @@ jobs:
           const body = `The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.`;
           console.log(`Sending email to ${mailto} with subject: ${subject}`);
           console.log(`Body: ${body}`);
-          const mail = github.context.repo.owner + '/' + github.context.repo;
           await github.actions.sendMail({
             to: mailto,
             subject: subject,
