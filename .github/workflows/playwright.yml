@@ -27,7 +27,7 @@ jobs:
             test-results
         retention-days: 2
     - name: Send email notification
-        if: ${{ job.needs.build.status == 'success' }}  # Only trigger if build succeeds
+      if: ${{ job.needs.build.status == 'success' }}  # Only trigger if build succeeds
         steps:
           - uses: actions/checkout@v2
           - name: Send email notification
