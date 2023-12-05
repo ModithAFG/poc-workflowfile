@@ -26,19 +26,19 @@ jobs:
            
             test-results
         retention-days: 2
-  
     - uses: actions/checkout@v2
     - name: Send email notification
-      uses: actions/github-script@v6
+      uses: dawidd6/action-send-mail@v3
       with:
-        script: |
-          const mailto = 'modith.george@afgonline.com.au';
-          const subject = 'Build job ${{ github.sha }} completed successfully!';
-          const body = `The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.`;
-          console.log(`Sending email to ${mailto} with subject: ${subject}`);
-          console.log(`Body: ${body}`);
-          await github.actions.sendMail({
-            to: mailto,
-            subject: subject,
-            body: body
-          });
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
+        username: ${{ secrets.USERNAMEEMAIL }}
+        password: ${{ secrets.PASSWORDEMAIL }}
+        subject: ${{ github.sha }} Build completed - ${{ job.status }}
+        from: modithafg@gmail.com
+        to: 'your_email@example.com'
+        body: |
+            The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.
+            Build status: ${{ job.status }}.
+            See more details: ${{ github.run_url }}
