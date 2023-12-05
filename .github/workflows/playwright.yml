@@ -26,23 +26,21 @@ jobs:
            
             test-results
         retention-days: 2
+  
+    - uses: actions/checkout@v2
     - name: Send email notification
-      if: ${{ job.needs.build.status == 'success' }}  # Only trigger if build succeeds
-        steps:
-          - uses: actions/checkout@v2
-          - name: Send email notification
-            uses: actions/github-script@v6
-            with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-            script: |
-              const mailto = 'your_email@example.com';
-              const subject = 'Build job ${{ github.sha }} completed successfully!';
-              const body = `The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.`;
-              console.log(`Sending email to ${mailto} with subject: ${subject}`);
-              console.log(`Body: ${body}`);
-              const mail = github.context.repo.owner + '/' + github.context.repo.repo;
-              await github.actions.sendMail({
-               to: mailto,
-               subject: subject,
-               body: body
-              });
+      uses: actions/github-script@v6
+      with:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+      script: |
+        const mailto = 'your_email@example.com';
+        const subject = 'Build job ${{ github.sha }} completed successfully!';
+        const body = `The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.`;
+        console.log(`Sending email to ${mailto} with subject: ${subject}`);
+        console.log(`Body: ${body}`);
+        const mail = github.context.repo.owner + '/' + github.context.repo.repo;
+        await github.actions.sendMail({
+          to: mailto,
+          subject: subject,
+          body: body
+        });
