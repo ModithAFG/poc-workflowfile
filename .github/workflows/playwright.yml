@@ -36,6 +36,7 @@ jobs:
         username: ${{ secrets.USERNAMEEMAIL }}
         password: ${{ secrets.PASSWORDEMAIL }}
         subject: ${{ github.sha }} Build completed - ${{ job.status }}
+        from: modithafg@gmail.com
         to: 'your_email@example.com'
         body: |
             The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.
