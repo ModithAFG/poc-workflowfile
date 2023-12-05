@@ -32,7 +32,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const mailto = 'your_email@example.com';
+          const mailto = 'modith.george@afgonline.com.au';
           const subject = 'Build job ${{ github.sha }} completed successfully!';
           const body = `The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.`;
           console.log(`Sending email to ${mailto} with subject: ${subject}`);
