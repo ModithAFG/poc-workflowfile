@@ -26,12 +26,8 @@ jobs:
            
             test-results
         retention-days: 2
-notify:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Send email notification
+    - uses: actions/checkout@v2
+    - name: Send email notification
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
