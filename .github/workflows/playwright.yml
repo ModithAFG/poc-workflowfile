@@ -23,10 +23,8 @@ jobs:
       with:
         name: Report
         path: |
-            test-results/cucumber-report.html
-            test-results/cucumber-report.json
-            test-results/reports
-            test-results/reports/index.html
-            test-results/reports/assets/**/*
+           
+            test-results
+          
 
         retention-days: 2
