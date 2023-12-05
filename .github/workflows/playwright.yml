@@ -31,8 +31,8 @@ jobs:
        server_address: smtp.gmail.com
        server_port: 587
        secure: true
-       username: modithafg@gmail.com
-       password: uN_CebQ.Swfi7g7
+       username: ${{secrets.USERNAMEEMAIL}}
+       password: ${{secrets.PASSWORDEMAIL}}
        subject: Github Actions job result
        to: modith.george@afgonline.com.au
        from: Modith George
