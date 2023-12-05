@@ -31,7 +31,6 @@ jobs:
     - name: Send email notification
       uses: actions/github-script@v6
       with:
-      github-token: ${{ secrets.GITHUB_TOKEN }}
       script: |
         const mailto = 'your_email@example.com';
         const subject = 'Build job ${{ github.sha }} completed successfully!';
