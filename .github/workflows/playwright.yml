@@ -42,3 +42,4 @@ jobs:
             The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.
             Build status: ${{ job.status }}.
             See more details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts
