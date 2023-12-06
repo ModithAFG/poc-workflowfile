@@ -42,4 +42,4 @@ jobs:
             Build status: ${{ job.status }}.
             See more details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
             Report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ github.artifact_id }}
-            Report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ github.artifacts_id }}
+            Report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/ARTIFACT_ID
