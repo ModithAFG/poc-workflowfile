@@ -26,7 +26,6 @@ jobs:
            
             test-results
         retention-days: 2
-    - uses: actions/checkout@v2
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
       with:
