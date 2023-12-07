@@ -18,7 +18,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Cucumber tests
-      run: npm test --TAGS=@fail
+      run: npm run test --TAGS=@fail
     - uses: actions/upload-artifact@v3
       with:
         name: Report
@@ -26,6 +26,8 @@ jobs:
            
             test-results
         retention-days: 
+    - name: Create Report
+      run: npm run test:report    
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
       with:
