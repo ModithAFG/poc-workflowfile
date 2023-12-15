@@ -24,11 +24,11 @@ jobs:
     - name: report upload
       uses: actions/upload-artifact@v3
       with:
-      name: Report
-      path: |
+       name: Report
+       path: |
            
           test-results
-      retention-days: 
+       retention-days: 
     - name: Create Report
       run: npm run test:report    
     - name: Send email notification
