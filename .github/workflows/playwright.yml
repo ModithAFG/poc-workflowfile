@@ -22,7 +22,7 @@ jobs:
     - name: Create Report
       run: npm run test:report     
     - name: report upload
-      uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3
       with:
        name: Report
        path: |
