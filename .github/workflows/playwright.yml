@@ -18,10 +18,35 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Cucumber tests
-      run: npm test
-    - uses: actions/upload-artifact@v3
-      if: always()
+      run: npm run test --TAGS=@fail 
+    - name: Run Report
+      run: npm run test:report
+    - name: Create Report
+      if: success() || failure()
+    #  run: npm run test:report     
+      uses: actions/upload-artifact@v3
       with:
         name: Report
-        path: test-results
-        retention-days: 2
+        path: |
+           
+            test-results
+        retention-days: 
+    #- name: Create Report
+    #  run: npm run test:report    
+    - name: Send email notification
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
+        username: ${{ secrets.USERNAMEEMAIL }}
+        password: ${{ secrets.PASSWORDEMAIL }}
+        subject: ${{ github.sha }} Build completed - ${{ job.status }}
+        from: ${{ secrets.USERNAMEEMAIL }}
+        to: modith.george@afgonline.com.au
+        body: |
+            The build job for commit ${{ github.sha }} has finished running on branch ${{ github.ref }}.
+            Build status: ${{ job.status }}.
+            See more details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ github.artifact_id }}
+            Report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/ARTIFACT_ID
