@@ -20,7 +20,7 @@ jobs:
     - name: Run Cucumber tests
       run: npm run test --TAGS=@fail ;npm run test:report
     - name: Create Report
-      if: faliure()
+      if: success()
     #  run: npm run test:report     
       uses: actions/upload-artifact@v3
       with:
